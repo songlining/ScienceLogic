@@ -1,5 +1,4 @@
 from silo_common.snippets.powershell import powershell_winrm
-# import traceback
 from collections import namedtuple
 import pprint
 
