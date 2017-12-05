@@ -69,7 +69,9 @@ class localAPI:
     
     # Applying a device template to a device must have a content-type:application/em7-resource-uri
     def apply(self, uri, payload=None):
-        return requests.post(self._host+uri, headers={"content-type": "application/em7-resource-uri"}, auth=self._httpauth, data=payload, verify=False)
+        return requests.post(self._host+uri, 
+                             headers={"content-type": "application/em7-resource-uri"}, 
+                             auth=self._httpauth, data=payload, verify=False)
          
 # Convert template name to template id         
 def get_template_id(dbc, template_name):
