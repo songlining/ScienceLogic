@@ -96,7 +96,6 @@ try:
         self.logger.ui_debug("Error: %s" % (error))
         
     elif data is not None:
-        # Rearrange
         # First extract the individual dictionaries
         n = data['Name']
     
@@ -116,6 +115,7 @@ try:
                         r = api.apply("/api/device/%s" % (self.did), "/api/device_template/%s" % (tid))
                     except Exception, err:
                         self.logger.debug("Error while applying templates to device: %s" % (err))
+            
             # generate the list anyway, to show all the services.
             name.append((key, n[key]))
             if white_list and n[key] in white_list:
