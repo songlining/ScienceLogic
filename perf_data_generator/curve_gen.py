@@ -44,7 +44,7 @@ TEST = True
 
 if TEST is True:
     import matplotlib.pyplot as plt
-    dt_list = generate_datetime("2019-01-01 00:00", "2019-01-21 00:00", 5)
+    dt_list = generate_datetime("2019-01-01 00:00", "2019-01-20 00:00", 5)
 
 busyhour_start = "09:00"
 busyhour_end = "17:00"
@@ -76,5 +76,5 @@ if TEST is True:
 
 else:
     y = get_value(datetime.datetime.now(), mean, std)
-    result_handler["val01"] = [(0, y + gauss(30, 15))]
-    result_handler["val02"] = [(0, y*2 + gauss(100, 50))]
+    result_handler["val01"] = [(0, math.floor(y + gauss(30, 15)))]
+    result_handler["val02"] = [(0, math.floor(y*2 + gauss(100, 50)))]
