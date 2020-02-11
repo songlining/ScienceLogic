@@ -178,6 +178,9 @@ organization = args['org']
 print("org = {}".format(organization))
 password = getpass.getpass(prompt='Password: ')
 
+try: input = raw_input
+except NameError: pass
+
 while True:
     result = list_bs()
     table = []

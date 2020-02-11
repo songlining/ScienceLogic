@@ -31,6 +31,7 @@ def get_value(dt, mean, std):
     year, month, day, hour, minute = map(int, dt.strftime("%Y:%m:%d:%H:%M").split(":"))
     minute_of_day = hour * 60 + minute
     if dt.weekday() == 5 or dt.weekday() == 6:
+        # lower values for weekends
         y = normfun(minute_of_day, mean, std) * 10000 + gauss(30, 5)
     else:
         y = normfun(minute_of_day, mean, std) * 100000 + gauss(30, 15)
@@ -39,12 +40,12 @@ def get_value(dt, mean, std):
 
 #################### MAIN ####################
 
-# Set to True for plotting
+# Set to True for plotting, False for production
 TEST = True
 
 if TEST is True:
     import matplotlib.pyplot as plt
-    dt_list = generate_datetime("2019-01-01 00:00", "2019-01-20 00:00", 5)
+    dt_list = generate_datetime("2019-01-01 00:00", "2019-01-2 00:00", 5)
 
 busyhour_start = "09:00"
 busyhour_end = "17:00"
@@ -53,7 +54,7 @@ bs_h, bs_m = map(int, busyhour_start.split(":"))
 be_h, be_m = map(int, busyhour_end.split(":"))
 
 mean = ((be_h * 60 + be_m) - (bs_h * 60 + bs_m)) / 2 + (bs_h * 60 + bs_m)
-std = ((be_h * 60 + be_m) - (bs_h * 60 + bs_m)) / 2 * 2 / 3
+std = ((be_h * 60 + be_m) - (bs_h * 60 + bs_m)) / 2 / 2
 
 
 if TEST is True:
