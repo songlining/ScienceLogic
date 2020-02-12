@@ -196,7 +196,7 @@ while True:
         table.append([n, name, type, org, id])
         n = n + 1
     print(tabulate(table, headers=["Index", "Name", "Type", "Organization", "ID"]))
-    i = input("\nEnter the index numbers from the above table, separated by space, press Enter once finished: ")
+    i = input("\nEnter the index numbers from the above table, separated by space, press Enter once finished (or Ctl-C to exit): ")
     bs_index = i.split()
     for i in bs_index:
         try:
