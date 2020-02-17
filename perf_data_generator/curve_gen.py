@@ -45,7 +45,7 @@ TEST = True
 
 if TEST is True:
     import matplotlib.pyplot as plt
-    dt_list = generate_datetime("2019-01-01 00:00", "2019-01-2 00:00", 5)
+    dt_list = generate_datetime("2019-01-01 00:00", "2019-01-14 00:00", 5)
 
 busyhour_start = "09:00"
 busyhour_end = "17:00"
