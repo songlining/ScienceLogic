@@ -6,6 +6,7 @@ import datetime
 import time
 import re
 import code
+import pprint
 
 # ScienceLogic libraries.
 
@@ -113,9 +114,12 @@ try:
                     a3.append((ifindex, ifname))
         elif 'error' in r.json().keys():
             app_alert(r.json()['error']['details'])
-        result_handler[(this_device.did, 'if_admin_status')] = a1
-        result_handler[(this_device.did, 'if_oper_status')] = a2
-        result_handler[(this_device.did, 'ifname')] = a3
+        pprint.pprint(a1)
+        pprint.pprint(a2)
+        pprint.pprint(a3)
+        result_handler['if_admin_status'] = a1
+        result_handler['if_oper_status'] = a2
+        result_handler['ifname'] = a3
             
 except SnippetException as snippet_err:
     debug("Exception: {}".format(snippet_err))
