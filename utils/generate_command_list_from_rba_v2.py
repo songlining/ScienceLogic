@@ -5,8 +5,6 @@ dbc = local_db()
 
 html_content = ''
 
-debug = 0
-
 content = {}
 # Sample and data structure below
 # content = {
@@ -46,8 +44,8 @@ def extract_from_snippet_headers():
                 if line.startswith("@command"):
                     commands.append(line.strip().strip("@command: ").strip("\r").strip('"'))
             populate_json(ap_name, ename, action_name, commands)
-        # else:
-            # populate_json(ap_name, ename, action_name, [])
+        else:
+            populate_json(ap_name, ename, action_name, [])
 
 
 def extract_from_action_types():
@@ -109,8 +107,7 @@ def print_html():
         events = ''
         for e in content[ap_name]["event_names"]:
             events = events + '<br>' + e
-        rows = rows + '<tr><td rowspan="{}">{}</td><td rowspan="{}">{}</td><td rowspan="{}">{}</td>'.format(
-            rowspan, counter, rowspan, ap_name, rowspan, events)
+        rows = rows + '<tr><td rowspan="{}">{}</td><td rowspan="{}">{}</td><td rowspan="{}">{}</td>'.format(rowspan, counter, rowspan, ap_name, rowspan, events)
         first_row = True
         if rowspan == 0:
             # no actions in this automation has any meaningful commands
@@ -130,32 +127,7 @@ def print_html():
         rows = rows + '\n'
         counter = counter + 1
 
-    html_content = """<html>\n
-<style>
-#dataframe {
-  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-
-#dataframe td, #dataframe th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-#dataframe tr:nth-child(even){background-color: #f2f2f2;}
-
-#dataframe tr:hover {background-color: #ddd;}
-
-#dataframe th {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: #4CAF50;
-  color: white;
-}
-</style>
-    <table border="1" id="dataframe">
+    html_content = """<html>\n<table border="1" class="dataframe">
     <thead>
       <tr style="text-align: left;">
         <th>#</th>
@@ -169,7 +141,6 @@ def print_html():
 
     print html_content
 
-################ MAIN ################
 extract_from_action_types()
 extract_from_snippet_headers()
 print_html()
