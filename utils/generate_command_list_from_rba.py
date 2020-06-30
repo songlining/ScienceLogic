@@ -102,7 +102,7 @@ def print_html():
     html_content = ''
     rows = ''
 
-    for ap_name in content:
+    for ap_name in sorted(content):
         rowspan = len(content[ap_name]["actions"])
         if rowspan == 0:
             rowspan = 1
