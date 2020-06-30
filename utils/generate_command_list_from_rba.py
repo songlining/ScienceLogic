@@ -80,7 +80,7 @@ def extract_from_action_types():
             except Exception:
                 # We got the command name here
                 commands.append(c1)
-        populate_json(ap_name, ename, action_name, commands)
+            populate_json(ap_name, ename, action_name, commands)
 
 def populate_json(ap_name, ename, action_name, commands):
 
