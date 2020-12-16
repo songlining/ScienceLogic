@@ -1,6 +1,7 @@
 import datetime
 import numpy as np
 from random import gauss
+import math
 
 # https://en.wikipedia.org/wiki/Normal_distribution, to get the bell curve
 def normfun(x,mu,sigma):
@@ -41,7 +42,7 @@ def get_value(dt, mean, std):
 #################### MAIN ####################
 
 # Set to True for plotting, False for production
-TEST = True
+TEST = False
 
 if TEST is True:
     import matplotlib.pyplot as plt
