@@ -157,7 +157,7 @@ def createFromHarTemplate(template_id, bs_name, bs_description, definition):
 
 ####### main ######
 
-parser = argparse.ArgumentParser(description='Batch deletion of Business Services.')
+parser = argparse.ArgumentParser(description='Create Business Services from Templates.')
 parser.add_argument('--url', help='Required argument --  URL of the SL1 GraphQL API endpoint.  Example: https://sl1platform.company.com/gql OR http://sl1platform.company.com/gql', required=True)
 parser.add_argument('--user', help='Required argument --  user name for the GraphQL request.  Users will be prompted for a password at run time.', required=True)
 args = vars(parser.parse_args())
