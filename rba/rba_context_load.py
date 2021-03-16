@@ -8,4 +8,3 @@ if 'EM7_VALUES' not in globals():
             vars()[k] = j[k]
 
     j = None
-    print(locals())
