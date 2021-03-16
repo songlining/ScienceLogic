@@ -1,10 +1,10 @@
 import requests
 
-##################################################
-# The code block below is for manual triggering
-# of the Action. It will be bypassed if it's
-# triggered by an Automation.
-##################################################
+#############################################################################
+# This code block is for manual triggering of the Action. It will be bypassed
+# if it's triggered by an Automation, therefore it can be kept in production
+# code.
+#############################################################################
 if 'EM7_VALUES' not in globals():
     import cPickle as pickle
     with open("./em7_vars.pk", 'r') as f:
@@ -13,6 +13,11 @@ if 'EM7_VALUES' not in globals():
         if 'EM7' in k:
             vars()[k] = d[k]
     d = None
+
+    ###################################################
+    # input variables from action types (if any) below
+    ###################################################
+
     # webhook and classic_ui are variables defined in the Action Type
     # change the value below to your own webhook
     webhook = "https://company-a.webhook.office.com/webhookb2/..."
