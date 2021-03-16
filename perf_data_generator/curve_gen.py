@@ -21,7 +21,6 @@ def get_value(dt, mean, std):
 
 #################### MAIN ####################
 
-
 busyhour_start = "09:00"
 busyhour_end = "17:00"
 
@@ -30,7 +29,6 @@ be_h, be_m = map(int, busyhour_end.split(":"))
 
 mean = ((be_h * 60 + be_m) - (bs_h * 60 + bs_m)) / 2 + (bs_h * 60 + bs_m)
 std = ((be_h * 60 + be_m) - (bs_h * 60 + bs_m)) / 2 / 2
-
 
 y = get_value(datetime.datetime.now(), mean, std)
 result_handler["val01"] = [(0, math.floor(y + gauss(30, 15)))]
