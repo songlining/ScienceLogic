@@ -12,7 +12,6 @@ try:
     logger.debug ("EM7 variable dump starts here: ")
     logger.debug (">>>" + j + "<<<")
     logger.debug ("EM7 variable dump stops here.")
-    EM7_RESULT = j
 except Exception as ex:
     logger.debug ("json dump error: {}. This can be ignored in most cases".format(ex))
 
