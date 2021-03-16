@@ -1,7 +1,7 @@
 #############################################################################
 # This code block is for manual triggering of the Action. It will be bypassed
 # if it's triggered by an Automation, therefore it can be kept in production
-# code.
+# code. 
 #############################################################################
 if 'EM7_VALUES' not in globals():
     import cPickle as pickle
